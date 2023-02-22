@@ -38,14 +38,16 @@ import Control.Applicative
     ( liftA2 )
 import Control.Exception
     ( Exception, SomeException, toException )
-import Control.Monad.Class.MonadSTM
+import Control.Concurrent.Class.MonadSTM
     ( MonadSTM
     , atomically
-    , modifyTVar'
+    , retry
+    )
+import Control.Concurrent.Class.MonadSTM.TVar
+    ( modifyTVar'
     , newTVarIO
     , readTVar
     , readTVarIO
-    , retry
     , writeTVar
     )
 import Control.Monad.Class.MonadThrow
